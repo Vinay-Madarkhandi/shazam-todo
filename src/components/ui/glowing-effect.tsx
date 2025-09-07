@@ -95,7 +95,7 @@ const GlowingEffect = memo(
     useEffect(() => {
       if (shouldDisable) return;
 
-      let throttleTimeout: NodeJS.Timeout;
+      let throttleTimeout: NodeJS.Timeout | undefined;
       
       const throttledHandleMove = (e?: PointerEvent) => {
         if (throttleTimeout) return;
