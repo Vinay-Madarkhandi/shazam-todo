@@ -37,7 +37,7 @@ export const PerformanceProvider: React.FC<{ children: React.ReactNode }> = ({ c
 
   useEffect(() => {
     // Auto-detect low performance devices
-    const isLowPerformance = () => {
+    const isLowPerformance = (): boolean => {
       // Check for low-end device indicators
       const memory = (navigator as Navigator & { deviceMemory?: number }).deviceMemory;
       const connection = (navigator as Navigator & { connection?: { effectiveType?: string } }).connection;
@@ -47,7 +47,7 @@ export const PerformanceProvider: React.FC<{ children: React.ReactNode }> = ({ c
       const isSlowConnection = connection && connection.effectiveType && ['slow-2g', '2g', '3g'].includes(connection.effectiveType);
       const isLowCores = cores && cores < 4;
       
-      return isLowMemory || isSlowConnection || isLowCores;
+      return Boolean(isLowMemory || isSlowConnection || isLowCores);
     };
 
     setLowPerformanceMode(isLowPerformance());
