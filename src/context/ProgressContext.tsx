@@ -1,7 +1,7 @@
 'use client';
 
 import React, { createContext, useContext, useState, useEffect } from 'react';
-import { Phase, Day, ProgressData } from '@/types';
+import { Phase, Day, Week, ProgressData } from '@/types';
 import { curriculumData } from '@/data/curriculum';
 
 interface ProgressContextType {
@@ -10,7 +10,7 @@ interface ProgressContextType {
   updateDayRemarks: (dayId: string, remarks: string) => void;
   getDayById: (dayId: string) => Day | null;
   getPhaseById: (phaseId: string) => Phase | null;
-  getWeekById: (weekId: string) => any;
+  getWeekById: (weekId: string) => Week | null;
 }
 
 const ProgressContext = createContext<ProgressContextType | undefined>(undefined);

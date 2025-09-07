@@ -26,7 +26,6 @@ const GlowingEffect = memo(
     variant = "default",
     glow = false,
     className,
-    movementDuration = 2,
     borderWidth = 1,
     disabled = true,
   }: GlowingEffectProps) => {
@@ -102,7 +101,7 @@ const GlowingEffect = memo(
         if (throttleTimeout) return;
         throttleTimeout = setTimeout(() => {
           handleMove(e);
-          throttleTimeout = null as any;
+          throttleTimeout = undefined;
         }, 16); // ~60fps throttling
       };
 

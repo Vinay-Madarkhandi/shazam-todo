@@ -1,9 +1,9 @@
 'use client';
 
 import React, { useState, useRef, useEffect, useId } from 'react';
-import { Week, Day } from '@/types';
+import { Week } from '@/types';
 import { DayCard } from './DayCard';
-import { ChevronDown, ChevronRight, Calendar, X } from 'lucide-react';
+import { Calendar, X } from 'lucide-react';
 import { AnimatePresence, motion } from 'framer-motion';
 import { useOutsideClick } from '@/hooks/use-outside-click';
 import { GlowingEffect } from '@/components/ui/glowing-effect';
@@ -19,7 +19,6 @@ export const WeekCard: React.FC<WeekCardProps> = React.memo(({
   onToggleDayComplete, 
   onUpdateDayRemarks 
 }) => {
-  const [isExpanded, setIsExpanded] = useState(false);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const ref = useRef<HTMLDivElement>(null);
   const id = useId();
@@ -200,3 +199,5 @@ export const WeekCard: React.FC<WeekCardProps> = React.memo(({
     </>
   );
 });
+
+WeekCard.displayName = 'WeekCard';

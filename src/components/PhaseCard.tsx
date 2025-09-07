@@ -1,9 +1,9 @@
 'use client';
 
 import React, { useState, useRef, useEffect, useId } from 'react';
-import { Phase, Week } from '@/types';
+import { Phase } from '@/types';
 import { WeekCard } from './WeekCard';
-import { ChevronDown, ChevronRight, Target, Calendar, X } from 'lucide-react';
+import { Target, X } from 'lucide-react';
 import { AnimatePresence, motion } from 'framer-motion';
 import { useOutsideClick } from '@/hooks/use-outside-click';
 import { GlowingEffect } from '@/components/ui/glowing-effect';
@@ -19,7 +19,6 @@ export const PhaseCard: React.FC<PhaseCardProps> = React.memo(({
   onToggleDayComplete, 
   onUpdateDayRemarks 
 }) => {
-  const [isExpanded, setIsExpanded] = useState(false);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const ref = useRef<HTMLDivElement>(null);
   const id = useId();
@@ -218,3 +217,5 @@ export const PhaseCard: React.FC<PhaseCardProps> = React.memo(({
     </>
   );
 });
+
+PhaseCard.displayName = 'PhaseCard';

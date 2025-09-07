@@ -333,3 +333,5 @@ export const DayCard: React.FC<DayCardProps> = React.memo(({ day, onToggleComple
     </>
   );
 });
+
+DayCard.displayName = 'DayCard';
